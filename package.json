@@ -1,0 +1,27 @@
+{
+  "name": "bmnns-api",
+  "version": "1.0.0",
+  "description": "Minion Shop",
+  "main": "handler.js",
+  "scripts": {
+    "test": "serverless-bundle test"
+  },
+  "author": "claradiasbr",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.869.0",
+    "serverless-bundle": "^3.2.0",
+    "serverless-dotenv-plugin": "^2.1.1",
+    "serverless-offline": "^5.3.3"
+  },
+  "dependencies": {
+    "uuid": "^7.0.3"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}
