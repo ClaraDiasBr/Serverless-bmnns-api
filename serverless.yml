@@ -15,14 +15,25 @@ provider:
   runtime: nodejs12.x
   stage: prod
   region: us-east-1
-
-   #environment:
-  #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+  environment:
+    tableName: UserOrdersTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:Query
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
 functions:
-  hello:
-    handler: handler.hello
+  ### Funções para os pedidos ###
+  createOrder:
+    handler: functions/order/createOrder.main
     events:
       - http:
-          path: hello
-          method: get
+          path: order
+          method: post
