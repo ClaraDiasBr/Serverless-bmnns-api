@@ -1,6 +1,10 @@
 # NOTE: update this with your service name
 service: bmnns-api
 
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
+  
 # Create an optimized package for our functions 
 package:
   individually: true
@@ -27,7 +31,8 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
         - dynamodb:DescribeTable
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+      Resource: 
+        - "arn:aws:dynamodb:us-east-1:*:*"
 
 functions:
   ### Funções para os pedidos ###
@@ -37,5 +42,6 @@ functions:
       - http:
           path: order
           method: post
+          cors: true
           authorizer: aws_iam
 
