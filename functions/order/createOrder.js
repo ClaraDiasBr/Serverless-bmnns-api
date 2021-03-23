@@ -10,9 +10,9 @@ export const main = handler(async (event, context) => {
     TableName: table,
     Item: {
       // The attributes of the item to be created
+      username: event.requestContext.identity.cognitoIdentityId,
       orderId: uuid.v1(), // A unique uuid
       createdAt: new Date().toISOString(), // Current Unix timestamp
-      username: data.username,
       name: data.name, // nome do produto
       preco: data.preco, // preço
     },

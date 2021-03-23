@@ -1,3 +1,8 @@
 {
-    "body": "{\"username\":\"devclara.bgc@gmail.com\",\"name\":\"Funko Davi\",\"preco\":70}"
+    "body": "{\"name\":\"Funko Davi\",\"preco\":70}",
+    "requestContext": {
+      "identity": {
+        "cognitoIdentityId": "USER-Minion-1234"
+      }
+    }
   }
