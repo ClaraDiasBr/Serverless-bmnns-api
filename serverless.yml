@@ -4,7 +4,7 @@ service: bmnns-api
 resources:
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
-  
+
 # Create an optimized package for our functions 
 package:
   individually: true
@@ -12,6 +12,7 @@ package:
 plugins:
   - serverless-bundle # Package our functions with Webpack
   - serverless-offline
+  - serverless-webpack
   - serverless-dotenv-plugin # Load .env as environment variables
 
 provider:
@@ -44,4 +45,21 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  sendOrderEmail:
+    handler: functions/order/sendOrderEmail.main
+    events:
+      - http: 
+          path: sendOrder
+          method: get
+          cors: true
+          authorizer: aws_iam
+  listOrders:
+    handler: functions/order/listOrders.main
+    events:
+      - http: 
+          path: listOrders
+          method: get
+          cors: true
+          authorizer: aws_iam
+ 
 
