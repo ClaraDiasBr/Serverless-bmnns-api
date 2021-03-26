@@ -18,7 +18,7 @@ export const main = handler(async (event, context) => {
     // envia o email utilizndo o objeto transporter criado
     let info = await transporter.sendMail({
     from: '"Minion Shop" <devclara.bgc@gmail.com>',
-    to: "claradprado.aws@gmail.com", // lista de envio
+    to: "claradprado.aws@gmail.com, thiago@bgcbrasil.com.br", // lista de envio
     subject: "Nova reserva realizada!", // Assunto
     text: "Nova reserva feita no Minion Shop!",
     html: "<h1>Nova reserva!</h1><h4>Seu minion está a caminho</h4>", // html body
