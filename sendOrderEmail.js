@@ -1,4 +1,4 @@
-import handler from "../../libs/handler-lib";
+import handler from "./libs/handler-lib";
 import nodemailer from 'nodemailer';
 
 //funcao para enviar email apos a compra

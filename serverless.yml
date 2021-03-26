@@ -38,7 +38,7 @@ provider:
 functions:
   ### Funções para os pedidos ###
   createOrder:
-    handler: functions/order/createOrder.main
+    handler: createOrder.main
     events:
       - http:
           path: order
@@ -46,7 +46,7 @@ functions:
           cors: true
           authorizer: aws_iam
   sendOrderEmail:
-    handler: functions/order/sendOrderEmail.main
+    handler: sendOrderEmail.main
     events:
       - http: 
           path: sendOrder
@@ -54,7 +54,7 @@ functions:
           cors: true
           authorizer: aws_iam
   listOrders:
-    handler: functions/order/listOrders.main
+    handler: listOrders.main
     events:
       - http: 
           path: listOrders
